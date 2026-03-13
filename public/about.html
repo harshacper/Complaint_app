@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Complainsy</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .about-header {
+            text-align: center;
+            padding: 80px 20px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .about-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .about-header p {
+            font-size: 1.2rem;
+            color: #ddd;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .about-content {
+            padding: 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #fff;
+        }
+        .about-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #FF416C;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .team-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF4B2B, #FF416C);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: white;
+        }
+    </style>
+</head>
+<body class="home-page"> <!-- Reuse Home Page bg -->
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <i data-lucide="shield-alert"></i> Complainsy
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html" class="active">About Us</a></li>
+            <li><a href="/index.html#how-it-works">How It Works</a></li>
+            <li><a href="/login.html" class="btn-primary" style="color:white">Login / Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-header">
+        <h1>Our Mission</h1>
+        <p>We are building the bridge between citizens and administrators to foster safer and cleaner communities through technology.</p>
+    </div>
+
+    <div class="about-content">
+        <h2><i data-lucide="crosshair"></i> The Vision</h2>
+        <p>Complainsy was founded on a simple principle: Civic engagement shouldn't be difficult. Often, residents see issues—potholes, broken streetlights, or illegal dumping—but the process to report them is opaque and frustrating. We saw an opportunity to utilize modern web technologies like accurate GPS tracking, secure cloud storage, and automated notification systems to fix this disconnect.</p>
+        
+        <p>By providing a seamless digital platform, administrators can easily triage issues, map out high-problem zones, and dispatch resources efficiently. Meanwhile, the residents are kept in the loop automatically, establishing a new standard of trust in local communities.</p>
+
+        <h2 style="margin-top: 80px;"><i data-lucide="users"></i> Core Team Focus</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-icon"><i data-lucide="shield-check" style="width: 40px; height: 40px;"></i></div>
+                <h3 style="margin-bottom: 10px;">Security First</h3>
+                <p style="font-size:0.95rem; color:#ccc;">User data, passwords, and GPS locations are strictly protected by modern AES encryption and JWT verification standard.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-icon"><i data-lucide="zap" style="width: 40px; height: 40px;"></i></div>
+                <h3 style="margin-bottom: 10px;">Speed & UI</h3>
+                <p style="font-size:0.95rem; color:#ccc;">Performance matters. The Complainsy system operates with lightning fast APIs and a 100% responsive, dark-mode focused UI.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-icon"><i data-lucide="globe" style="width: 40px; height: 40px;"></i></div>
+                <h3 style="margin-bottom: 10px;">Mapping Logic</h3>
+                <p style="font-size:0.95rem; color:#ccc;">We integrate with highly accurate map layers to drop precise pins, reducing search times for administrative fixers.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 80px;">
+            <a href="/login.html" class="btn-primary" style="padding: 15px 40px; font-size: 1.2rem;">Join Complainsy Today</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div style="font-size: 24px; font-weight: bold; margin-bottom: 15px; display:flex; align-items:center; justify-content:center; gap: 8px;">
+            <i data-lucide="shield-alert"></i> Complainsy
+        </div>
+        <p>Your Voice. Our Action. Building a Better Community Together.</p>
+        <p style="font-size: 13px; margin-top: 15px; color:#666;">&copy; 2026 Complainsy Project. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

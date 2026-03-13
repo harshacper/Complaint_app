@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Complaint - Complainsy</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map { height: 250px; width: 100%; border-radius: 8px; margin-top: 10px; display: none; }
+        .location-btn { background: #3b82f6; border: none; color: white; padding: 10px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        .location-btn:hover { background: #2563eb; }
+        .preview-img { max-width: 100%; border-radius: 8px; margin-top: 10px; display: none; }
+    </style>
+</head>
+<body class="complaint-page">
+    <nav class="navbar">
+        <a href="/" class="logo">Complainsy</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/complaint.html" class="active">Submit Complaint</a></li>
+            <li><a href="#" onclick="logout()" class="btn-secondary">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container grid-2">
+        <div class="glass-card">
+            <h2>Lodge a Complaint</h2>
+            <form id="complaint-form">
+                <div class="form-group">
+                    <label>Complaint Title</label>
+                    <input type="text" id="c-title" required placeholder="E.g., Pothole on main street">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="c-desc" rows="4" required placeholder="Describe the issue..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload Photo Evidence</label>
+                    <input type="file" id="c-photo" accept="image/*" onchange="previewImage(event)">
+                    <img id="photo-preview" class="preview-img" alt="Photo Preview">
+                </div>
+                <div class="form-group">
+                    <label>Location Details</label>
+                    <button type="button" class="location-btn w-100" onclick="getLocation()">Get Current Location</button>
+                    <input type="hidden" id="c-lat">
+                    <input type="hidden" id="c-lon">
+                    <p id="loc-status" style="margin-top: 10px; font-size: 14px; color: #555;"></p>
+                    <div id="map"></div>
+                </div>
+                <button type="submit" class="btn-primary w-100 mt-2">Submit Complaint</button>
+            </form>
+        </div>
+
+        <div class="glass-card">
+            <h2>Your Recent Complaints</h2>
+            <div id="my-complaints">
+                <p class="text-center">Loading complaints...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Confirmation -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <h3 id="popup-title">Success</h3>
+            <p id="popup-message">Operation successful!</p>
+            <button class="btn-primary" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/complaint.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '/login.html';
+        }
+
+        function showPopup(title, message, callback) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-message').innerText = message;
+            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('popup').querySelector('.popup').classList.add('show');
+            window.popupCallback = callback;
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popup').querySelector('.popup').classList.remove('show');
+            if (window.popupCallback) window.popupCallback();
+        }
+        
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('photo-preview');
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

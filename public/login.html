@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register - Complainsy</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .tabs { display: flex; border-bottom: 2px solid #eee; margin-bottom: 30px; }
+        .tab { flex: 1; padding: 15px; text-align: center; font-weight: bold; cursor: pointer; color: #888; transition: 0.3s; font-size: 1.1rem; }
+        .tab.active { color: #2a5298; border-bottom: 3px solid #FF416C; }
+        #register-form { display: none; }
+    </style>
+</head>
+<body class="login-page">
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            Complainsy
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/index.html#how-it-works">How It Works</a></li>
+            <li><a href="/login.html" class="active">Login / Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="container auth-container">
+        <div class="auth-wrapper">
+            <div class="auth-sidebar">
+                <h2>Secure Access</h2>
+                <p>Welcome to Complainsy. Log in to monitor your civic reports, or register to submit new complaints backed by GPS tracking and photo evidence.</p>
+                <div style="margin-top: 40px; text-align:center;">
+                    <img src="/images/login-bg.png" style="width:100%; max-width: 300px; border-radius:15px; opacity:0.9; box-shadow: 0 10px 25px rgba(0,0,0,0.5);" alt="Secure DB">
+                </div>
+            </div>
+            
+            <div class="auth-main">
+                <div class="glass-card">
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchTab('login')">Login</div>
+                        <div class="tab" onclick="switchTab('register')">Register</div>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form">
+                        <h2 style="color:#333;text-align:left; font-size: 1.8rem;">Welcome Back</h2>
+                        <p style="color:#666; margin-bottom:25px;">Please enter your credentials to sign in.</p>
+                        
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-icon-group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <input type="email" id="login-email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div class="input-icon-group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                <input type="password" id="login-password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                        
+                        <div class="extra-links">
+                            <label><input type="checkbox"> Remember me</label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn-primary w-100" style="padding: 12px; font-size:1.1rem;">Login Securely</button>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="register-form">
+                        <h2 style="color:#333;text-align:left; font-size: 1.8rem;">Create Account</h2>
+                        <p style="color:#666; margin-bottom:25px;">Join us to transform your community.</p>
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <div class="input-icon-group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <input type="text" id="reg-name" placeholder="John Doe" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-icon-group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <input type="email" id="reg-email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Secure Password</label>
+                            <div class="input-icon-group">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                <input type="password" id="reg-password" placeholder="Create a strong password" required>
+                            </div>
+                        </div>
+
+                        <div class="extra-links" style="margin-top:-5px; display:block;">
+                            <label style="font-size:13px;"><input type="checkbox" required> I agree to the <a href="#" style="margin-left:4px;">Terms & Conditions</a></label>
+                        </div>
+
+                        <button type="submit" class="btn-primary w-100" style="padding: 12px; font-size:1.1rem; margin-top:10px;">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Confirmation -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <h3 id="popup-title">Success</h3>
+            <p id="popup-message">Operation successful!</p>
+            <button class="btn-primary" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            if (tab === 'login') {
+                document.getElementById('login-form').style.display = 'block';
+                document.getElementById('register-form').style.display = 'none';
+                document.querySelectorAll('.tab')[0].classList.add('active');
+            } else {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('register-form').style.display = 'block';
+                document.querySelectorAll('.tab')[1].classList.add('active');
+            }
+        }
+        
+        function showPopup(title, message, callback) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-message').innerText = message;
+            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('popup').querySelector('.popup').classList.add('show');
+            window.popupCallback = callback;
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popup').querySelector('.popup').classList.remove('show');
+            if (window.popupCallback) window.popupCallback();
+        }
+    </script>
+</body>
+</html>

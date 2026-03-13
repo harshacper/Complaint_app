@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern Complaint Management System">
+    <title>Complainsy | Efficient Complaint Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="home-page">
+    <nav class="navbar">
+        <a href="/" class="logo">
+            <i data-lucide="shield-alert" style="width:28px; height:28px;"></i>
+            Complainsy
+        </a>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li id="nav-complaints" class="hidden"><a href="/complaint.html">My Complaints</a></li>
+            <li id="nav-admin" class="hidden"><a href="/admin.html">Admin Dashboard</a></li>
+            <li id="nav-login"><a href="/login.html" class="btn-primary" style="color:white">Login / Register</a></li>
+            <li id="nav-logout" class="hidden"><a href="#" onclick="logout()" class="btn-secondary">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container text-center" style="margin-top: 100px; max-width: 900px; padding-bottom: 80px;">
+        <h1 style="font-size: 4rem; margin-bottom: 20px; line-height: 1.1; background: linear-gradient(to right, #fff, #a5b4fc); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Report an Issue.<br>We Fix It Fast.</h1>
+        <p style="font-size: 1.25rem; color: #e2e8f0; margin-bottom: 40px; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Welcome to Complainsy, the modern, transparent way to lodge your civic complaints. With real-time geo-location, evidence uploads, and seamless tracking workflow, we ensure your voice is heard and action is taken immediately.
+        </p>
+        
+        <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 50px;">
+            <a href="/complaint.html" class="btn-primary" style="padding: 15px 35px; font-size: 1.1rem; display:flex; align-items:center; gap: 10px;">
+                <i data-lucide="file-plus"></i> Lodge a Complaint
+            </a>
+            <a href="/login.html" class="btn-secondary" style="padding: 15px 35px; font-size: 1.1rem; display:flex; align-items:center; gap: 10px;">
+                <i data-lucide="activity"></i> Track Status
+            </a>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 30px; color: #cbd5e1; font-size: 0.9rem;">
+            <span style="display:flex; align-items:center; gap:5px;"><i data-lucide="check-circle" style="color:#10b981; width:18px;"></i> 100% Secure</span>
+            <span style="display:flex; align-items:center; gap:5px;"><i data-lucide="check-circle" style="color:#10b981; width:18px;"></i> Fast Resolution</span>
+            <span style="display:flex; align-items:center; gap:5px;"><i data-lucide="check-circle" style="color:#10b981; width:18px;"></i> Real-time Updates</span>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="info-section" style="background: rgba(10, 25, 47, 0.4);">
+        <h2 class="section-title">Why Choose Complainsy?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i data-lucide="map-pin" class="feature-icon" style="width: 48px; height: 48px;"></i>
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Geo-Tagging Technology</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">Our system automatically captures exact coordinates of the issue, eliminating confusion and directing help precisely where it's needed faster than ever.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i data-lucide="camera" class="feature-icon" style="width: 48px; height: 48px;"></i>
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Visual Evidence</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">Upload photos directly from your smartphone or computer. A picture speaks a thousand words and speeds up the verification process securely.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i data-lucide="bell-ring" class="feature-icon" style="width: 48px; height: 48px;"></i>
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Smart Notifications</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">Never stay in the dark. Our automated email notification system triggers exactly when your complaint status changes from Pending to Solved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="info-section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Create an Account</h3>
+                    <p>Register securely in seconds. We use modern encryption to keep your details safe. You can then log in to view your dashboard of reports.</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Submit Your Report</h3>
+                    <p>Fill out a simple form detailing the problem. You can easily attach images as proof and instantly ping your current GPS location directly off the browser.</p>
+                </div>
+            </div>
+            
+            <div class="step-item" style="margin-bottom: 0;">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>We Fix & Notify You</h3>
+                    <p>Our administrators review the map and imagery to dispatch resources. Once the issue is resolved on the Admin panel, you immediately get a success email.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div style="font-size: 24px; font-weight: bold; margin-bottom: 15px; display:flex; align-items:center; justify-content:center; gap: 8px;">
+            <i data-lucide="shield-alert"></i> Complainsy
+        </div>
+        <p>Your Voice. Our Action. Building a Better Community Together.</p>
+        <p style="font-size: 14px; margin-top: 20px;">
+            <a href="/about.html">About Us</a> | 
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a>
+        </p>
+        <p style="font-size: 13px; margin-top: 15px; color:#666;">&copy; 2026 Complainsy Project. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Check Authentication Status
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (token && user) {
+                document.getElementById('nav-login').classList.add('hidden');
+                document.getElementById('nav-logout').classList.remove('hidden');
+                document.getElementById('nav-complaints').classList.remove('hidden');
+
+                if (user.role === 'admin') {
+                    document.getElementById('nav-admin').classList.remove('hidden');
+                }
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

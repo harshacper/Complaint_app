@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Complainsy</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .admin-container { max-width: 1400px; }
+        .map-popup { position: fixed; top: 10%; left: 50%; transform: translateX(-50%); width: 80%; max-width: 800px; background: white; padding: 20px; z-index: 1000; border-radius: 10px; display: none; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        #admin-map { height: 400px; width: 100%; border-radius: 8px; margin-top: 15px; }
+        .close-btn { float: right; cursor: pointer; color: red; font-size: 20px; font-weight: bold; background: none; border: none; }
+        .map-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.6); z-index: 999; display: none; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">Complainsy Admin</a>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Dashboard</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="#" onclick="logout()" class="btn-secondary">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container admin-container">
+        <div class="glass-card">
+            <h2>All Submitted Complaints</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Title & Details</th>
+                            <th>Evidence</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Date Submited</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table">
+                        <tr><td colspan="8" class="text-center">Loading Data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal -->
+    <div class="map-overlay" id="map-overlay" onclick="closeMap()"></div>
+    <div class="map-popup" id="map-popup">
+        <button class="close-btn" onclick="closeMap()">×</button>
+        <h3>Complaint Location</h3>
+        <p id="map-details" style="color: #555; margin-top: 10px; font-size: 14px;"></p>
+        <div id="admin-map"></div>
+    </div>
+
+    <!-- Popup Confirmation -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup">
+            <h3 id="popup-title">Success</h3>
+            <p id="popup-message">Status updated successfully!</p>
+            <button class="btn-primary" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/admin.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = '/login.html';
+        }
+
+        function showPopup(title, message, callback) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-message').innerText = message;
+            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('popup').querySelector('.popup').classList.add('show');
+            window.popupCallback = callback;
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popup').querySelector('.popup').classList.remove('show');
+            if (window.popupCallback) window.popupCallback();
+        }
+    </script>
+</body>
+</html>
